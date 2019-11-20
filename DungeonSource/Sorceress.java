@@ -1,48 +1,37 @@
 
-
-/**
- * Title:
- * Description:
- * Copyright:    Copyright (c) 2001
- * Company:
- * @author
- * @version 1.0
- */
-
-
-
-public class Sorceress extends Hero
-{
+public class Sorceress extends Hero{
+	
 	public final int MIN_ADD = 25;
 	public final int MAX_ADD = 50;
 
-//-----------------------------------------------------------------
-    public Sorceress()
-	{
+	public Sorceress(){
+		
 		super("Sorceress", 75, 5, .7, 25, 50, .3);
+<<<<<<< HEAD
     }//end constructor
 
 //-----------------------------------------------------------------
 	@Override
 	public void specialAttack()
     {
-	    int hPoints;
+=======
+	}
 
+	public void specialAttack(DungeonCharacter opponent){
+		
+>>>>>>> f63a3c912d97597da9f26c055086f7f3fe8a72b5
+	    int hPoints;
 		hPoints = (int)(Math.random() * (MAX_ADD - MIN_ADD + 1)) + MIN_ADD;
 		addHitPoints(hPoints);
-		System.out.println(name + " added [" + hPoints + "] points.\n"
-							+ "Total hit points remaining are: "
-							+ hitPoints);
-		 System.out.println();
+		System.out.println(name + " added [" + hPoints + "] points.\n"+ "Total hit points remaining are: "+ hitPoints);
+		System.out.println();
+    }
 
-    }//end increaseHitPoints method
-
-//-----------------------------------------------------------------
-	public void attack(DungeonCharacter opponent)
-	{
-		System.out.println(name + " casts a spell of fireball at " +
-							opponent.getName() + ":");
+	public void attack(DungeonCharacter opponent){
+		
+		System.out.println(name + " casts a spell of fireball at " +opponent.getName() + ":");
 		super.attack(opponent);
+<<<<<<< HEAD
 	}//end override of attack method
 
 //-----------------------------------------------------------------
@@ -77,3 +66,7 @@ public class Sorceress extends Hero
     }//end overridden method
 */
 }//end class
+=======
+	}
+}
+>>>>>>> f63a3c912d97597da9f26c055086f7f3fe8a72b5

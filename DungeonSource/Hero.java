@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import java.util.Scanner;
 
 /**
@@ -73,13 +74,40 @@ inherited from DungeonCharacter promoting polymorphic behavior
 ---------------------------------------------------------*/
 public void subtractHitPoints(int hitPoints)
 	{
+=======
+
+public abstract class Hero extends DungeonCharacter{
+	
+	protected double chanceToBlock;
+	protected int numTurns;
+	
+	public Hero(String name, int hitPoints, int attackSpeed, double chanceToHit,
+			    int damageMin, int damageMax, double chanceToBlock){
+		
+		super(name, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax);
+		this.chanceToBlock = chanceToBlock;
+		readName();
+	}
+
+	public void readName(){
+		
+		System.out.print("Enter character name: ");
+		name = Keyboard.readString();
+	}
+
+	public boolean defend(){
+		
+		return Math.random() <= chanceToBlock;
+	}
+	
+	public void subtractHitPoints(int hitPoints){
+		
+>>>>>>> f63a3c912d97597da9f26c055086f7f3fe8a72b5
 		if (defend())
-		{
 			System.out.println(name + " BLOCKED the attack!");
-		}
 		else
-		{
 			super.subtractHitPoints(hitPoints);
+<<<<<<< HEAD
 		}
 
 
@@ -93,13 +121,18 @@ go better in another method that is invoked from this one...
 ---------------------------------------------------------*/
 	public void battleChoices(DungeonCharacter opponent)
 	{
-	    numTurns = attackSpeed/opponent.getAttackSpeed();
+=======
+	}
 
+	public void battleChoices(DungeonCharacter opponent){
+		
+>>>>>>> f63a3c912d97597da9f26c055086f7f3fe8a72b5
+	    numTurns = attackSpeed/opponent.getAttackSpeed();
 		if (numTurns == 0)
 			numTurns++;
-
 		System.out.println("Number of turns this round is: " + numTurns);
 		int choice;
+<<<<<<< HEAD
 		do
 		{
 		    System.out.println("1. Attack Opponent");
@@ -109,12 +142,21 @@ go better in another method that is invoked from this one...
 
 		    switch (choice)
 		    {
+=======
+		do{
+		    System.out.println("1. Attack Opponent");
+		    System.out.println("2. Special Attack");
+		    System.out.print("Choose an option: ");
+		    choice = Keyboard.readInt();
+		    switch (choice){
+>>>>>>> f63a3c912d97597da9f26c055086f7f3fe8a72b5
 			    case 1: attack(opponent);
 			        break;
 			    case 2: specialAttack(opponent);
 			        break;
 			    default:
 			        System.out.println("invalid choice!");
+<<<<<<< HEAD
 		    }//end switch
 
 			numTurns--;
@@ -129,3 +171,15 @@ go better in another method that is invoked from this one...
 	}
 
 }//end Hero class
+=======
+		    }
+			numTurns--;
+			if (numTurns > 0)
+			    System.out.println("Number of turns remaining is: " + numTurns);
+		} while(numTurns > 0);
+
+	}
+
+	protected abstract void specialAttack(DungeonCharacter opponent);
+}
+>>>>>>> f63a3c912d97597da9f26c055086f7f3fe8a72b5
