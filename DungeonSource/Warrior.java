@@ -23,8 +23,8 @@ public class Warrior extends Hero
 
     }//end constructor
 
-
-	public void crushingBlow(DungeonCharacter opponent)
+	@Override
+	public void specialAttack(DungeonCharacter opponent)
 	{
 		if (Math.random() <= .4)
 		{
@@ -51,7 +51,7 @@ public class Warrior extends Hero
 
 
 
-    public void battleChoices(DungeonCharacter opponent)
+  /*  public void battleChoices(DungeonCharacter opponent)
 	{
 		int choice;
 
@@ -81,5 +81,5 @@ public class Warrior extends Hero
 		} while(numTurns > 0);
 
     }//end battleChoices method
-
+*/
 }//end Hero class

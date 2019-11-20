@@ -20,12 +20,11 @@ public class Sorceress extends Hero
     public Sorceress()
 	{
 		super("Sorceress", 75, 5, .7, 25, 50, .3);
-
-
     }//end constructor
 
 //-----------------------------------------------------------------
-	public void increaseHitPoints()
+	@Override
+	public void specialAttack()
     {
 	    int hPoints;
 
@@ -47,7 +46,7 @@ public class Sorceress extends Hero
 	}//end override of attack method
 
 //-----------------------------------------------------------------
-    public void battleChoices(DungeonCharacter opponent)
+    /*public void battleChoices(DungeonCharacter opponent)
 	{
 		super.battleChoices(opponent);
 		int choice;
@@ -76,5 +75,5 @@ public class Sorceress extends Hero
 		} while(numTurns > 0 && hitPoints > 0 && opponent.getHitPoints() > 0);
 
     }//end overridden method
-
+*/
 }//end class

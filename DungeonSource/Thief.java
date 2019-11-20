@@ -19,8 +19,8 @@ public class Thief extends Hero
 
 
     }//end constructor
-
-	public void surpriseAttack(DungeonCharacter opponent)
+	@Override
+	public void specialAttack(DungeonCharacter opponent)
 	{
 		double surprise = Math.random();
 		if (surprise <= .4)
@@ -42,7 +42,7 @@ public class Thief extends Hero
 	}//end surpriseAttack method
 
 
-    public void battleChoices(DungeonCharacter opponent)
+/*    public void battleChoices(DungeonCharacter opponent)
 	{
 		super.battleChoices(opponent);
 		int choice;
@@ -71,5 +71,5 @@ public class Thief extends Hero
 
 		} while(numTurns > 0);
 
-    }
+    }*/
 }
