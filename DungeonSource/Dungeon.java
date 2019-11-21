@@ -1,25 +1,9 @@
-<<<<<<< HEAD
+
 import java.util.Scanner;
-/*
-  This class is the driver file for the Heroes and Monsters project.  It will
-  do the following:
-
-  1.  Allow the user to choose a hero
-  2.  Randomly select a monster
-  3.  Allow the hero to battle the monster
-
-  Once a battle concludes, the user has the option of repeating the above
-
-*/
-public class Dungeon
-{
-	private static Scanner kb = new Scanner(System.in);
-    public static void main(String[] args)
-	{
-=======
->>>>>>> f63a3c912d97597da9f26c055086f7f3fe8a72b5
 
 public class Dungeon{
+	
+	private static Scanner kb = new Scanner(System.in);
 	
     public static void main(String[] args){
     	
@@ -35,22 +19,10 @@ public class Dungeon{
     public static Hero chooseHero(){
     	
 		int choice;
-<<<<<<< HEAD
-		Hero theHero;
-
-		System.out.println("Choose a hero:\n" +
-					       "1. Warrior\n" +
-						   "2. Sorceress\n" +
-						   "3. Thief");
-		choice = kb.nextInt();
-
-		switch(choice)
-		{
-=======
 		System.out.println("Choose a hero:\n" +"1. Warrior\n" +"2. Sorceress\n" +"3. Thief");
-		choice = Keyboard.readInt();
+		choice = kb.nextInt();
+		kb.nextLine();
 		switch(choice){
->>>>>>> f63a3c912d97597da9f26c055086f7f3fe8a72b5
 			case 1: return new Warrior();
 			case 2: return new Sorceress();
 			case 3: return new Thief();
@@ -76,12 +48,8 @@ public class Dungeon{
     	
 		char again;
 		System.out.println("Play again (y/n)?");
-<<<<<<< HEAD
-		again = kb.nextChar();
-
-=======
-		again = Keyboard.readChar();
->>>>>>> f63a3c912d97597da9f26c055086f7f3fe8a72b5
+		again = kb.next().charAt(0);
+		kb.nextLine();
 		return (again == 'Y' || again == 'y');
 	}
 
@@ -95,15 +63,9 @@ public class Dungeon{
 			if (theMonster.isAlive())
 			    theMonster.attack(theHero);
 			System.out.print("\n-->q to quit, anything else to continue: ");
-<<<<<<< HEAD
-			pause = kb.nextChar();
-
-		}//end battle loop
-
-=======
-			pause = Keyboard.readChar();
+			pause = kb.next().charAt(0);
+			kb.nextLine();
 		}
->>>>>>> f63a3c912d97597da9f26c055086f7f3fe8a72b5
 		if (!theMonster.isAlive())
 		    System.out.println(theHero.getName() + " was victorious!");
 		else if (!theHero.isAlive())
