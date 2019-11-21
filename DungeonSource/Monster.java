@@ -17,7 +17,6 @@ public class Monster extends DungeonCharacter{
 		
 		boolean canHeal;
 		int healPoints;
-
 		canHeal = (Math.random() <= chanceToHeal) && (hitPoints > 0);
 		if (canHeal){
 			healPoints = (int)(Math.random() * (maxHeal - minHeal + 1)) + minHeal;
