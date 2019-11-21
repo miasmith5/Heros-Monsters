@@ -1,10 +1,12 @@
 public class SelfHeal implements SpecialAttack{
-    public void selfHeal(DungeonCharacter opponent){
+	
+	@Override
+	public void attack(DungeonCharacter player, DungeonCharacter opponent) {
 		
 	    int hPoints;
-		hPoints = (int)(Math.random() * (MAX_ADD - MIN_ADD + 1)) + MIN_ADD;
-		addHitPoints(hPoints);
-		System.out.println(name + " added [" + hPoints + "] points.\n"+ "Total hit points remaining are: "+ hitPoints);
+		hPoints = (int)(Math.random() * (((Sorceress)player).MAX_ADD - ((Sorceress)player).MIN_ADD + 1)) + ((Sorceress)player).MIN_ADD;
+		player.addHitPoints(hPoints);
+		System.out.println(player.name + " added [" + hPoints + "] points.\n"+ "Total hit points remaining are: "+ player.hitPoints);
 		System.out.println();
     }
 }

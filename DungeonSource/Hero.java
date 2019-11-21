@@ -6,12 +6,14 @@ public abstract class Hero extends DungeonCharacter{
 	private Scanner kb = new Scanner(System.in);
 	protected double chanceToBlock;
 	protected int numTurns;
+	private SpecialAttack spAttack;
 	
 	public Hero(String name, int hitPoints, int attackSpeed, double chanceToHit,
-			    int damageMin, int damageMax, double chanceToBlock){
+			    int damageMin, int damageMax, double chanceToBlock, SpecialAttack spAttack){
 		
 		super(name, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax);
 		this.chanceToBlock = chanceToBlock;
+		this.spAttack = spAttack;
 		readName();
 	}
 
@@ -50,7 +52,7 @@ public abstract class Hero extends DungeonCharacter{
 		    switch (choice){
 			    case 1: attack(opponent);
 			        break;
-			    case 2: specialAttack(opponent);
+			    case 2: spAttack.attack(this, opponent);
 			        break;
 			    default:
 			        System.out.println("invalid choice!");
@@ -61,6 +63,4 @@ public abstract class Hero extends DungeonCharacter{
 		} while(numTurns > 0);
 
 	}
-
-	protected abstract void specialAttack(DungeonCharacter opponent);
 }
