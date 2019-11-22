@@ -19,7 +19,7 @@ public class Dungeon{
     public static Hero chooseHero(){
     	
 		int choice;
-		System.out.println("Choose a hero:\n" +"1. King Aurther\n" +"2. Zoot\n" +"3. Brave Sir Robin");
+		System.out.println("Choose a hero:\n" +"1. Warrior\n" +"2. Sorceress\n" +"3. Thief");
 		choice = kb.nextInt();
 		kb.nextLine();
 		switch(choice){
@@ -36,7 +36,7 @@ public class Dungeon{
 		int choice;
 		choice = (int)(Math.random() * 3) + 1;
 		switch(choice){
-			case 1: return new Monster("The Black Knight", 200, 2, .6, .1, 30, 50, 30, 50);
+			case 1: return new Monster("The Black Night", 200, 2, .6, .1, 30, 50, 30, 50);
 			case 2: return new Monster("Tom The Echanter", 70, 5, .8, .4, 15, 30, 20, 40);
 			case 3: return new Monster("The French Taunters", 100, 3, .8, .3, 30, 50, 30, 50);
 			default: System.out.println("invalid choice, returning The French Taunters");

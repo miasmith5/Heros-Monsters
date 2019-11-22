@@ -6,7 +6,7 @@ public class Zoot extends Hero{
 
 	public Zoot(){
 		
-		super("Zoot", 75, 5, .7, 25, 50, .3, new SelfHeal());
+		super("Sorceress", 75, 5, .7, 25, 50, .3, new SelfHeal());
 	}
 	public void attack(DungeonCharacter opponent){
 		

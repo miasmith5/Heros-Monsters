@@ -3,7 +3,7 @@ public class KingArthur extends Hero{
 	
     public KingArthur(){
 
-		super("King Aurther", 125, 4, .8, 35, 60, .2, new CrushingBlow());
+		super("Warrior", 125, 4, .8, 35, 60, .2, new CrushingBlow());
     }
 
 	public void attack(DungeonCharacter opponent){
