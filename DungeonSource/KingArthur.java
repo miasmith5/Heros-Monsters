@@ -1,7 +1,7 @@
 
 public class KingArthur extends Hero{
 	
-    public Warrior(){
+    public KingArthur(){
 
 		super("King Aurther", 125, 4, .8, 35, 60, .2, new CrushingBlow());
     }
