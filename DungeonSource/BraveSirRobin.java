@@ -1,7 +1,7 @@
 
-public class Thief extends Hero{
+public class BraveSirRobin extends Hero{
 	
-    public Thief(){
+    public BraveSirRobin(){
     	
 		super("Brave Sir Robin", 75, 6, .8, 20, 40, .5, new SneakAttack());
     }

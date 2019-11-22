@@ -23,11 +23,11 @@ public class Dungeon{
 		choice = kb.nextInt();
 		kb.nextLine();
 		switch(choice){
-			case 1: return new Warrior();
-			case 2: return new Sorceress();
-			case 3: return new Thief();
-			default: System.out.println("invalid choice, returning Thief");
-				     return new Thief();
+			case 1: return new KingArthur();
+			case 2: return new Zoot();
+			case 3: return new BraveSirRobin();
+			default: System.out.println("invalid choice, returning Brave Sir Robin");
+				     return new BraveSirRobin();
 		}
 	}
 

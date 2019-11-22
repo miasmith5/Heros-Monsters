@@ -1,5 +1,5 @@
 
-public class Warrior extends Hero{
+public class KingArthur extends Hero{
 	
     public Warrior(){
 
