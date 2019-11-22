@@ -1,0 +1,142 @@
+Mia Smith
+Christian Silver
+Terrance Cunningham
+
+
+Refactors:
+1. renamed methods and fields (Warrior is now King Arthur etc.)
+	- We decided to rename to make it easier to read and change the theme.
+
+	was:
+			case 1: return new Warrior();
+			case 2: return new Sorceress();
+			case 3: return new Thief();
+	now:
+			case 1: return new KingArthur();
+			case 2: return new Zoot();
+			case 3: return new BraveSirRobin();
+			default: System.out.println("invalid choice, returning Brave Sir Robin");
+				     return new BraveSirRobin();
+
+2. removed comments
+	- The comments were chunky and extended the amount of lines that were in each class. They gave a good description but were unneeded.
+
+	/*
+ 	 This class is the driver file for the Heroes and Monsters project.  It will
+  	do the following:
+
+	  1.  Allow the user to choose a hero
+	  2.  Randomly select a monster
+	  3.  Allow the hero to battle the monster
+	
+	  Once a battle concludes, the user has the option of repeating the above
+	*/
+
+3. removed unused variables and implementations
+	- This was dead code. It was never used and/or was declared more than once.
+
+	theHero was declared in both chooseHero and nothing was done.
+
+	public static Hero chooseHero()
+	{
+		int choice;
+		Hero theHero; <---- dead code
+
+		System.out.println("Choose a hero:\n" +
+				      "1. Warrior\n" +
+			     	      "2. Sorceress\n" +
+			 	      "3. Thief");
+		choice = Keyboard.readInt();
+		switch(choice)
+		{
+			case 1: return new Warrior();
+			case 2: return new Sorceress();
+			case 3: return new Thief();
+			default: System.out.println("invalid choice, returning Thief");
+				     return new Thief();
+
+	public class DungeonCharacter implements Comparable<--- Comparable was never used but method was used so it wouldnt be angry
+
+
+4. removed keyboard and imported scanner
+	- Although impressive the keyboard class was scrapped and swtiched with the scanner provided by java. This removes one entire class and changed a few lines here and there.
+
+	choice = Keyboard.readInt();
+		was changed to:
+	choice = kb.nextInt();
+
+
+
+5. removed ogre, skeleton, and gremlin subclasses.
+	- The subclasses were not needed for this portion. The monsters have nothing unique for each subclass. All monsters did monster stuff.
+
+		
+	was:
+		switch(choice)
+		{
+			case 1: return new Ogre();
+			case 2: return new Gremlin();
+			case 3: return new Skeleton();
+			default: System.out.println("invalid choice, returning Skeleton");
+				     return new Skeleton();
+		}//end switch
+		
+	now:
+		switch(choice){
+			case 1: return new Monster("The Black Knight", 200, 2, .6, .1, 30, 50, 30, 50);
+			case 2: return new Monster("Tom The Echanter", 70, 5, .8, .4, 15, 30, 20, 40);
+			case 3: return new Monster("The French Taunters", 100, 3, .8, .3, 30, 50, 30, 50);
+			default: System.out.println("invalid choice, returning The French Taunters");
+				     return new Monster("French Taunters", 100, 3, .8, .3, 30, 50, 30, 50);
+			}
+
+
+
+
+6. created a special attack interface and coresponding subclasses for hero's unique attacks
+	- We did this by implementing the Strategy Pattern. It allows easy modification and addition of new attacks.
+
+	public interface SpecialAttack{	
+    		public void attack(DungeonCharacter player, DungeonCharacter opponent); 
+	}//end SpecialAttack interface
+
+	public class SneakAttack implements SpecialAttack{
+
+	@Override
+	public void attack(DungeonCharacter player, DungeonCharacter opponent) {
+		double surprise = Math.random();
+		if (surprise <= .4){
+			System.out.println("Surprise attack was successful!\n" +player.name + " gets an additional turn.");
+			((Hero)player).numTurns++;
+			player.attack(opponent);
+		}else if (surprise >= .9){
+			System.out.println("Uh oh! " + opponent.getName() + " saw you and" +" blocked your attack!");
+		}else
+			player.attack(opponent);
+		}
+	}//end SneakAttack class	
+	
+
+7. pushed battleChoices to hero class
+	- It was redundant to keep copying and pasting the same method with out changing everything. The only thing that was changed was the special attack from hero to hero.
+	
+	public void battleChoices(DungeonCharacter opponent)
+	{
+		//super.battleChoices(opponent); <--- this was removed
+		numTurns = attackSpeed/opponent.getAttackSpeed();
+		if (numTurns == 0)
+			numTurns++;
+		System.out.println("Number of turns this round is: " + numTurns);
+		int choice;
+	//this is not the entire method
+
+
+8. removed readName method
+	- This was not needed for what we were trying to accomplish with changing the theme. We wanted King Arthur to fight as King Arthur.
+
+	public static void readName(){
+		
+		System.out.print("Enter character name: ");
+		name = kb.nextLine();
+	}
+	The user now just chooses a hero to fight with. 

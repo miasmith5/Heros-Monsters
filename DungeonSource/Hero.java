@@ -14,13 +14,6 @@ public abstract class Hero extends DungeonCharacter{
 		super(name, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax);
 		this.chanceToBlock = chanceToBlock;
 		this.spAttack = spAttack;
-		readName();
-	}
-
-	public void readName(){
-		
-		System.out.print("Enter character name: ");
-		name = kb.nextLine();
 	}
 
 	public boolean defend(){
